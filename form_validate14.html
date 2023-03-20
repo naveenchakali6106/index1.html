@@ -1,0 +1,175 @@
+<html>
+    <head>
+        <title> form validation</title>
+        <script src="https://kit.fontawesome.com/76a388af8b.js" crossorigin="anonymous"></script>
+        <style>
+            .xyz{
+                background-color: rgb(117, 20, 190);
+                width: 350px;
+                height: 300px;
+                /* padding-left: 20px; */
+                /* margin-top: 2px; */
+                        
+            }
+            .abc{
+                background-color: lightgreen;
+                width: 350px;
+                height: 300px;
+            }
+            form{
+                text-align: center;
+            }
+    
+        </style>
+    </head>
+
+    
+    <body>
+        <fieldset style="width: 350px; height: 320px; border-radius: 2px; border-color: rgba(3, 65, 13, 0.886); box-shadow: red;">
+<form class="xyz" onsubmit="reg()"> 
+
+    <h2 style="background-color: rgb(45, 4, 97); width: fit-content; color: white;" > Registration</h2>
+
+    <lable >User_name : </lable>
+    &nbsp;&nbsp; 
+    <input id="user" placeholder=" enter user name" type="text" required>
+    <i class="fa-solid fa-user"></i>
+    <br><br>
+    <lable> Email : </lable>
+    &nbsp;&nbsp;   &nbsp;&nbsp;   &nbsp;&nbsp;
+    <input id="email" placeholder="enter emial" type="Email">
+    <i class="fa-sharp fa-solid fa-envelope"></i>
+    <br><br>
+    <lable> password  : </lable>
+    &nbsp;&nbsp;   &nbsp;&nbsp;   &nbsp;&nbsp; 
+    <input id="pswd" placeholder="enter password" type="password">
+    <i class="fa-solid fa-lock"></i>
+    <br><br>
+    <lable> confirm password  : </lable>
+    &nbsp;&nbsp; 
+    <input id="cpswd" placeholder="confirm ur password" type="password">
+    <i class="fa-solid fa-lock"></i>
+    <br><br>
+    <button style="background-color: blue;color: white;">submit</button>
+
+</form>
+</fieldset>
+
+<br><br>
+ <fieldset style="width: 350px; height: 320px; border-radius: 2px; border-color: rgb(124, 186, 65); box-shadow: red;">
+
+    <form class="abc"> 
+
+    <h2 style="background-color: rgb(68, 20, 155); width: fit-content; color: white;"> login</h2>
+    <lable >User_name  : </lable>
+    &nbsp;&nbsp;  
+    <input id="x" placeholder=" enter user name" type="text">
+    <i class="fa-solid fa-user"></i>
+    <br><br>
+    <lable> Email : </lable>
+    &nbsp;&nbsp;   &nbsp;&nbsp;  &nbsp;&nbsp;   &nbsp;&nbsp;
+    <input id="y" placeholder="enter emial" type="Email">
+    <i class="fa-sharp fa-solid fa-envelope"></i>
+    <br><br>
+    <lable> password  : </lable>
+    &nbsp;&nbsp;   &nbsp;&nbsp;
+    <input id="z" placeholder="enter password" type="password">
+    <i class="fa-solid fa-lock"></i>
+    <br><br>
+    <button onclick="login()" style="background-color: blue; color: white;"><a  href="DOM_ONCLICK2.HTML" target="_blank"> login</button>
+    </form>
+    </fieldset>
+
+<script>
+function login(){
+    let a=document.getElementById("x").value
+    let b=document.getElementById("y").value
+    let c= document.getElementById("z").value
+
+    let x= localStorage.getItem("user")
+    let y= localStorage.getItem("email")
+    let z= localStorage.getItem("password")
+
+    if(a === x && b === y && c === z){
+        alert("login successfully")
+    }
+    else{
+        alert("credentials don't match")
+        // window.location.herf=" "
+    }
+}
+
+
+function reg(){
+    let a=document.getElementById("user").value
+    let b=document.getElementById("email").value
+    let c= document.getElementById("pswd").value
+    let d= document.getElementById("cpswd").value
+    
+    if(a.length<5){
+        let x=document.getElementById("user")
+        //a.textContent="please fill it"
+        alert("enter atleast >5 ")
+
+   }
+   else if(c != d){
+        alert("password does not match..")
+    }
+    else {
+        alert("from successfully submitted..")
+        localStorage.setItem("user",a)
+        localStorage.setItem("email",b)
+        localStorage.setItem("password",c)
+    }
+
+
+        const user=document.getElementById("pswd")
+        let uservalue=user.value
+        let pattern=/^[a-zA-Z0-9\!@#$%^&*]+$/
+        if(pattern.test(uservalue)){
+            alert("valid user name")
+        }
+        else{
+            alert(" Invalid user name")
+        }
+
+
+
+    // const form=document.querySelector(".xyz")
+    // const input=document.querySelector("#user")
+//     let x=document.getElementById("user")
+//     x.addEventListener("submit",(e)=>{
+//         event.preventDefault()
+         
+//         console.log(input.value)
+//         let uservalue=input.value
+//         let pattern=/^ [A-Za-z]+[a-z]+[0-9]+[\@#$%^&*()]&/
+//         if(pattern.test(uservalue)){
+//      text.textContent=" Username is valid..!"
+//  }
+//  else{
+//     text.textContent=" invalid username"
+//  }
+
+
+//     })
+
+
+// const name=document.querySelector(".xyz")
+// let uservalue= input.value
+// let parrern= /^ [A-Z]+[a-z]+[0-9]+[\@#$%&]+$/
+// if(pattern.test(uservalue)){
+//     text.textContent=" Username is valid..!"
+// }
+// //color
+// else{
+//     text.textContent=" invalid username"
+// }     
+
+    }
+
+</script>
+
+
+    </body>
+</html>
